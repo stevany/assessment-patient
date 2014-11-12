@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "/tiles-config_2.1.dtd">
+
+<tiles-definitions>
+	
+    <definition name="standardLayout" template="/layout/standar.html" templateType="thymeleaf"/>
+    <definition name="emptyLayout" template="/layout/empty.html" templateType="thymeleaf"/>
+
+    <!--     <definition name="standardLayoutJSP" template="/WEB-INF/layouts/standard.jsp" templateType="jsp"/> -->
+
+</tiles-definitions>

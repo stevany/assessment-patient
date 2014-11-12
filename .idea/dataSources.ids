@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Data Source" product="MySQL" version="5.5.29" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.9 ( Revision: ${svn.Revision} )" uuid="9accecd5-2f4b-41a3-9312-5dfc411c4d8b">
+    <extra-name-characters>#@</extra-name-characters>
+    <identifier-quote-string>`</identifier-quote-string>
+    <synchronize>true</synchronize>
+    <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+    <jdbc-url>jdbc:mysql://localhost:3306/dbdatapp</jdbc-url>
+    <user-name>root</user-name>
+    <user-password>dfd8dfc5dfc5dfde</user-password>
+    <schema-pattern>dbdatapp.*</schema-pattern>
+    <default-dialect>MySQL</default-dialect>
+    <libraries>
+      <library>
+        <url>jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.9/mysql-connector-java-5.1.9.jar!/</url>
+      </library>
+    </libraries>
+    <schema name="" catalog="dbdatapp"/>
+    <table name="data_alatbantu" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="idField" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id,idField"/>
+      <foreign-key name="FK5E399D97B4C829" columns="id" ref-table="data_pasien" ref-schema="" ref-catalog="dbdatapp" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK5E399DA094EE4A" columns="idField" ref-table="stdfield" ref-schema="" ref-catalog="dbdatapp" ref-columns="idField" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="data_pasien" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="agama" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="alkohol" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="cara_bayar" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="hp" sqlType="VARCHAR" length="12" precision="0" nullable="true" jdbcType="12"/>
+      <column name="hp_d" sqlType="VARCHAR" length="12" precision="0" nullable="true" jdbcType="12"/>
+      <column name="hubungan" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="jalan" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="jalan_d" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="jk" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="jk_d" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="keluhan" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="kelurahan" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="keluarahan_d" sqlType="VARCHAR" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="ketAlkohol" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="ketriwayat_alergi" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="ketRokok" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <column name="kodepos" sqlType="VARCHAR" length="7" precision="0" nullable="true" jdbcType="12"/>
+      <column name="kodepos_d" sqlType="VARCHAR" length="7" precision="0" nullable="true" jdbcType="12"/>
+      <column name="kota" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="kota_d" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="kwn" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="lastUpdate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="nama_d" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="nama_lengkap" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="nama_panggilan" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="narkotika" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="olahraga" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="pekerjaan" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="pekerjaan_d" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="pendidikan" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="psikologis" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="riwayat_alergi" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="riwayat_bedah_anestesi" sqlType="VARCHAR" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <column name="riwayat_hamil" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="riwayat_lahir" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="rokok" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="stkawin" sqlType="BIT" length="0" precision="0" nullable="true" jdbcType="-7"/>
+      <column name="telepon" sqlType="VARCHAR" length="11" precision="0" nullable="true" jdbcType="12"/>
+      <column name="telepon_d" sqlType="VARCHAR" length="7" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tgl" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="tgl_lahir" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="tinggal" sqlType="VARCHAR" length="2" precision="0" nullable="true" jdbcType="12"/>
+      <column name="tmplahir" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="usrUpdate" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="FK5E399D97B4C829" table="data_alatbantu" schema="" catalog="dbdatapp" columns="id"/>
+      <exported-key name="FK6417F34B97B4C829" table="data_riwayatpenyakit" schema="" catalog="dbdatapp" columns="id"/>
+      <exported-key name="FK35628AEE97B4C829" table="data_rvdasar" schema="" catalog="dbdatapp" columns="id"/>
+      <exported-key name="FK8493748997B4C829" table="data_rvlanjut" schema="" catalog="dbdatapp" columns="id"/>
+      <exported-key name="FK5B3A81B04E537BD8" table="obatrutin" schema="" catalog="dbdatapp" columns="pasien_id"/>
+    </table>
+    <table name="data_riwayatpenyakit" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="idField" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id,idField"/>
+      <foreign-key name="FK6417F34B97B4C829" columns="id" ref-table="data_pasien" ref-schema="" ref-catalog="dbdatapp" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK6417F34BA094EE4A" columns="idField" ref-table="stdfield" ref-schema="" ref-catalog="dbdatapp" ref-columns="idField" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="data_rvdasar" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="idField" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id,idField"/>
+      <foreign-key name="FK35628AEE97B4C829" columns="id" ref-table="data_pasien" ref-schema="" ref-catalog="dbdatapp" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK35628AEEA094EE4A" columns="idField" ref-table="stdfield" ref-schema="" ref-catalog="dbdatapp" ref-columns="idField" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="data_rvlanjut" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="idField" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id,idField"/>
+      <foreign-key name="FK8493748997B4C829" columns="id" ref-table="data_pasien" ref-schema="" ref-catalog="dbdatapp" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK84937489A094EE4A" columns="idField" ref-table="stdfield" ref-schema="" ref-catalog="dbdatapp" ref-columns="idField" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="groupfield" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="kode" sqlType="VARCHAR" length="3" precision="0" nullable="false" jdbcType="12"/>
+      <column name="nama" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="kode"/>
+      <exported-key name="FK56C7A4D7DF82FCE9" table="stdfield" schema="" catalog="dbdatapp" columns="group_field"/>
+    </table>
+    <table name="obatrutin" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="obat_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="dosis" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="frekuensi" sqlType="VARCHAR" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="jenis_obat" sqlType="VARCHAR" length="100" precision="0" nullable="true" jdbcType="12"/>
+      <column name="pasien_id" sqlType="INT" length="10" precision="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="obat_id"/>
+      <foreign-key name="FK5B3A81B04E537BD8" columns="pasien_id" ref-table="data_pasien" ref-schema="" ref-catalog="dbdatapp" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="role" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="authority" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="authority"/>
+      <exported-key name="FK143BF46A29788AEF" table="user_role" schema="" catalog="dbdatapp" columns="authorities_authority"/>
+    </table>
+    <table name="stdfield" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="idField" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="kdUser" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="nmKdUser" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="group_field" sqlType="VARCHAR" length="3" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idField"/>
+      <foreign-key name="FK56C7A4D7DF82FCE9" columns="group_field" ref-table="groupfield" ref-schema="" ref-catalog="dbdatapp" ref-columns="kode" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="FK5E399DA094EE4A" table="data_alatbantu" schema="" catalog="dbdatapp" columns="idField"/>
+      <exported-key name="FK6417F34BA094EE4A" table="data_riwayatpenyakit" schema="" catalog="dbdatapp" columns="idField"/>
+      <exported-key name="FK35628AEEA094EE4A" table="data_rvdasar" schema="" catalog="dbdatapp" columns="idField"/>
+      <exported-key name="FK84937489A094EE4A" table="data_rvlanjut" schema="" catalog="dbdatapp" columns="idField"/>
+    </table>
+    <table name="user" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="enabled" sqlType="BIT" length="0" precision="0" nullable="false" jdbcType="-7"/>
+      <column name="password" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <column name="salt" sqlType="VARCHAR" length="255" precision="0" nullable="true" jdbcType="12"/>
+      <column name="user_name" sqlType="VARCHAR" length="255" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+      <exported-key name="FK143BF46A6D611C3A" table="user_role" schema="" catalog="dbdatapp" columns="user_user_id"/>
+    </table>
+    <table name="user_role" schema="" catalog="dbdatapp" type="TABLE">
+      <column name="user_user_id" sqlType="INT" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="authorities_authority" sqlType="VARCHAR" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_user_id,authorities_authority"/>
+      <foreign-key name="FK143BF46A6D611C3A" columns="user_user_id" ref-table="user" ref-schema="" ref-catalog="dbdatapp" ref-columns="user_id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK143BF46A29788AEF" columns="authorities_authority" ref-table="role" ref-schema="" ref-catalog="dbdatapp" ref-columns="authority" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+  </data-source>
+</component>

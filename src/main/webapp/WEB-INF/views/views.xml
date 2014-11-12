@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"/tiles-config_2.1.dtd">
+	
+<tiles-definitions>
+    <definition name="template-main" extends="standardLayout">
+        <put-attribute name="banner" value="/banner.html :: banner" type="thymeleaf"/>
+        <put-attribute name="sidebar" value="/menu.html :: sidebar" type="thymeleaf"/>
+        <put-attribute name="body" value="" type="thymeleaf"/>
+        <put-attribute name="footer" value="/footer.html :: footer" type="thymeleaf"/>
+
+    </definition>
+
+    <definition name="template-empty" extends="emptyLayout">
+    <put-attribute name="body" value="" type="thymeleaf"/>
+    </definition>
+
+    <definition name="intro" extends="template-main">
+        <put-attribute name="body" value="/contents/intro.html ::content" type="thymeleaf"/>
+    </definition>
+    <definition name="home" extends="template-main">
+        <put-attribute name="body" value="/contents/home.html ::content" type="thymeleaf"/>
+    </definition>
+
+    <definition name="pasienForm" extends="template-main">
+        <put-attribute name="body" value="/contents/data/pasienForm.html ::content" type="thymeleaf"/>
+    </definition>
+    <definition name="pasienList" extends="template-main">
+        <put-attribute name="body" value="/contents/data/pasienList.html ::content" type="thymeleaf"/>
+    </definition>
+    <definition name="pasien" extends="template-main">
+        <put-attribute name="body" value="/contents/data/pasien.html ::content" type="thymeleaf"/>
+    </definition>
+
+    <definition name="pasienForm/obat" extends="template-empty">
+        <put-attribute name="body" value="/contents/data/Obat.html ::content" type="thymeleaf"/>
+    </definition>
+
+    <definition name="stdfieldForm" extends="template-main">
+        <put-attribute name="body" value="/contents/field/stdFieldForm.html ::content" type="thymeleaf"/>
+    </definition>
+    <definition name="stdfieldList" extends="template-main">
+        <put-attribute name="body" value="/contents/field/stdFieldList.html ::content" type="thymeleaf"/>
+    </definition>
+
+    <definition name="login" extends="template-empty">
+        <put-attribute name="body" value="/login.html ::content" type="thymeleaf"/>
+    </definition>
+    <definition name="userForm" extends="template-main">
+        <put-attribute name="body" value="/contents/user/userForm.html ::content" type="thymeleaf"/>
+    </definition>
+</tiles-definitions>

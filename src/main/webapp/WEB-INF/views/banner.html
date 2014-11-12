@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+
+<head>
+    <title></title>
+</head>
+<body tiles:fragment="banner">
+<div>
+    <p align="right" valign="bottom">Hi, <span th:text="${currUser}"/><a href="/logout" th:href="@{'/logout'}">
+        <img src="/resources/css/img/logout-icon.png" th:src="@{'/resources/css/img/logout-icon.png'}"/></a>  </p>
+</div>
+</body>
+</html>

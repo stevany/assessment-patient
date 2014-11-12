@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      lang="en">
+<head>
+
+</head>
+<body tiles:fragment="content"  sec:authorize="hasRole('ADMIN')">
+
+<form action="#" th:action="@{/stdfieldForm}" th:object="${groupfield}" method="post">
+    <p align="right" valign="bottom">
+        <a href="/stdfieldList" th:href="@{'/stdfieldList'}"><img src="/resources/css/img/list.png" th:src="@{'/resources/css/img/list.png'}" class="gbr2"/></a>
+        <a href="/stdfieldForm" th:href="@{'/stdfieldForm'}"> <img src="/resources/css/img/new.jpg" th:src="@{'/resources/css/img/new.jpg'}" class="gbr2"/></a>
+        <button type="submit" name="create" class="noborder"><img src="/resources/css/img/save.png" th:src="@{'/resources/css/img/save.png'}" class="gbr2"/></button>
+    </p>
+    <div>
+        <label>Kode Field</label>
+        <input type="text" maxlength="3" th:field="*{kodeGroup}"
+               th:class="${#fields.hasErrors('kodeGroup')}?'fieldError' "/>
+    </div>
+    <div>
+        <label>Nama Field</label>
+        <input type="text" maxlength="100" th:field="*{namaGroup}"
+               th:class="${#fields.hasErrors('namaGroup')}?'fieldError' "/>
+    </div>
+
+</form>
+<form action="#" th:action="@{/stdfieldForm}" th:object="${stdfield}" method="post">
+    <div >
+
+        <span>
+        Kode User
+        <input type="text" maxlength="100" th:field="*{kdUser}"
+               th:class="${#fields.hasErrors('kdUser')}?'fieldError' "/>
+        </span>
+        <span>
+        Nama Kode User
+        <input type="text" maxlength="100" th:field="*{nmKdUser}"
+               th:class="${#fields.hasErrors('nmKdUser')}?'fieldError' "/>
+         </span>
+        <span>
+        <button type="submit" name="addRow" class="noborder" ><img src="/resources/css/img/add.png" th:src="@{/resources/css/img/add.png}" alt="submit"/></button>  </span>
+
+    </div>
+
+
+</form>
+<div>
+<table class="details">
+    <thead>
+    <tr>
+        <th>No</th>
+
+        <th>Kode User</th>
+        <th>Nama Kode User</th>
+        <th>Edit | Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="stdfield,rowStat :${liststdField}">
+        <td th:text="${rowStat.count}"/>
+        <td th:text="${stdfield.kdUser}"/>
+        <td th:text="${stdfield.nmKdUser}"/>
+        <td><a href="/stdfieldForm/+ ${stdfield.kdField.kodeGroup}+ / + ${stdfield.idField}"
+               th:href="@{'/stdfieldForm/'+ ${stdfield.kdField.kodeGroup}+ '/' + ${stdfield.idField}}"><img
+                src="/resources/css/img/edit.png" th:src="@{'/resources/css/img/edit1.png'}"/></a>
+            <a href="/stdfieldForm/del/+ ${stdfield.kdField.kodeGroup}+ / +${stdfield.idField}"
+               th:href="@{'/stdfieldForm/del/'+ ${stdfield.kdField.kodeGroup}+ '/' + ${stdfield.idField}}"><img
+                    src="/resources/css/img/remove.png" th:src="@{'/resources/css/img/remove.png'}"/></a>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>

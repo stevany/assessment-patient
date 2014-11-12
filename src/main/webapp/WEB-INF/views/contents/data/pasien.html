@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+
+<head>
+
+
+</head>
+<body tiles:fragment="content">
+    <div id="tabs">
+        <ul>
+            <li><a href="/pasienList.html">List</a></li>
+            <li><a href="pasienForm.html">Details</a></li>
+        </ul>
+        <!--<div id="1">-->
+            <!--<h2>List</h2>-->
+            <!--<a th:href="@{pasienForm}">Create</a>-->
+            <!--<a th:href="@{pasienForm(id=${1})}">Edit</a>-->
+        <!--</div>-->
+    </div>
+</body>
+</html>

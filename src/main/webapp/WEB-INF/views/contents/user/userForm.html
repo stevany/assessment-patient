@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+<head>
+
+</head>
+<body tiles:fragment="content" sec:authorize="hasRole('ADMIN')">
+<form action="#" th:action="@{/userForm}" th:object="${user}" method="post">
+    <p align="right" valign="bottom">
+        <!--<span th:if="${#bools.isTrue(dataPasien.new)}">-->
+        <a href="/userForm" th:href="@{'/userForm'}"> <img src="/resources/css/img/new.jpg"
+                                                           th:src="@{'/resources/css/img/new.jpg'}" class="gbr2"/></a>
+        <button type="submit" name="create" class="noborder"><img src="/resources/css/img/save.png"
+                                                                  th:src="@{'/resources/css/img/save.png'}"
+                                                                  class="gbr2"/></button>
+    </p>
+    <div>
+        <label>Username</label>
+        <input type="text" maxlength="100" th:field="*{username}"
+               th:class="${#fields.hasErrors('username')}?'fieldError' "/>
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="password" maxlength="100" th:field="*{password}"
+               th:class="${#fields.hasErrors('password')}?'fieldError' "/>
+    </div>
+    <div>
+        <label>Role</label>
+    <span class="opt" th:each="role: ${roleList}">
+    <input type="checkbox" th:field="*{authorities}" th:value="${role.authority}" th:text="${role.authority}"/>
+    </span>
+    </div>
+    <div><label> Enabled</label>
+        <span><input type="checkbox" th:field="*{enabled}"/></span>
+    </div>
+
+</form>
+<div>
+    <table class="details">
+        <thead>
+        <tr>
+            <th>User</th>
+            <th>Role</th>
+            <th> edit | delete
+
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="usr:${getUsers}">
+            <td th:text="${usr.username}"/>
+            <td th:each="rol: ${usr.authorities}">
+                <span th:text="${rol.authority}"/>
+            </td>
+
+            <td>
+                <a href="/userForm/+ ${usr.id}"
+                   th:href="@{'/userForm/' + ${usr.id}}">
+                    <img src="/resources/css/img/edit.png" th:src="@{'/resources/css/img/edit1.png'}" class="gbr1"/></a>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

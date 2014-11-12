@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+
+<head>
+
+
+</head>
+<body tiles:fragment="content" >
+
+
+<h1>FORM DATA PASIEN</h1>
+<form action="#" th:action="@{/pasienForm}" th:object="${dataPasien}" method="post">
+
+    <p align="right" valign="bottom">
+        <!--<span th:if="${#bools.isTrue(dataPasien.new)}">-->
+        <a href="/pasienList" th:href="@{'/pasienList'}">  <img src="/resources/css/img/list.png" th:src="@{'/resources/css/img/list.png'}" class="gbr2"/></a>
+            <a href="/pasienForm" th:href="@{'/pasienForm'}">  <img src="/resources/css/img/new.jpg" th:src="@{'/resources/css/img/new.jpg'}" class="gbr2"/></a>
+            <button type="submit" name="create" class="noborder">  <img src="/resources/css/img/save.png" th:src="@{'/resources/css/img/save.png'}" class="gbr2"/></button>
+
+        <!--<span th:if="${#bools.isFalse(dataPasien.new)}">-->
+            <!--<button type="submit" name="update">Update</button>-->
+        <!--</span>-->
+    </p>
+    <div><label class="judul">Identitas Pasien</label></div>
+    <div>
+        <label>Tanggal</label>
+        <!--(<span th:text="#{date.format}">DD-MM-YYYY</span>)-->
+        <input  type="text" id="tanggal" class="calendarTgl" th:field="*{tgl}"  />
+   </div>
+
+    <div>
+        <label>Nama Lengkap</label>
+        <input type="text" th:field="*{namaLengkap}" maxlength="100"
+               th:class="${#fields.hasErrors('namaLengkap')}?'fieldError' "/>
+        <span class="tengah1"/>
+            <label>Nama Panggilan</label>
+            <input type="text"  th:field="*{namaPanggilan}" maxlength="50"
+               th:class="${#fields.hasErrors('namaPanggilan')}?'fieldError'"/>
+
+    </div>
+
+    <div class="desc1"><span>Alamat</span></div>
+
+    <div>
+        <label>Jalan</label>
+        <input type="text" th:field="*{jalan}" maxlength="100" th:class="${#fields.hasErrors('jalan')}?'fieldError'"/>
+        <span class="tengah1"/>
+        <label>Kelurahan/Kecamatan</label>
+        <input type="text" th:field="*{kelurahan}" maxlength="30"
+               th:class="${#fields.hasErrors('kelurahan')}?'fieldError'"/>
+    </div>
+
+    <div>
+        <label>Kota</label>
+        <input type="text" th:field="*{kota}" maxlength="20" th:class="${#fields.hasErrors('kota')}?'fieldError'"/>
+        <span class="tengah1"/>
+        <label>Kode Pos</label>
+        <input type="text" th:field="*{kodePos}" maxlength="7" th:class="${#fields.hasErrors('kodePos')}?'fieldError'"/>
+    </div>
+    <div>
+        <label>Telepon  </label>
+        <input type="text" th:field="*{telepon}" maxlength="7"
+               th:class="${#fields.hasErrors('telepon')}?'fieldError'"/>
+        <span class="tengah1"/>
+        <label>HP  </label>
+        <input type="text" th:field="*{hp}" maxlength="15"
+               th:class="${#fields.hasErrors('hp')}?'fieldError'"/>
+    </div>
+    <div class="desc1"></div>
+    <div>
+        <label>Tempat Lahir</label>
+        <input type="text" th:field="*{tmpLahir}" maxlength="20"
+               th:class="${#fields.hasErrors('tmpLahir')}?'fieldError'"/>
+        <span class="tengah1"/>
+        <label>Tanggal Lahir</label>
+        <!--(<span th:text="#{date.format}">DD-MM-YYYY</span>)-->
+        <input type="text" id="tglLhr" class="calendarTgl" th:field="*{tglLahir}"/>
+    </div>
+    <div>
+        <label>Jenis Kelamin</label>
+            <span class="opt" th:each="jk : ${alljk}">
+                <input type="radio" th:field="*{jk}" th:value="${jk.kdUser}" th:text="${jk.nmKdUser}"/>
+            </span>
+        <span class="tengahS"/><label> Status Perkawinan</label>
+        <span><input type="checkbox"  th:field="*{stKawin}"/>Menikah</span>
+    </div>
+    <div>
+        <label>Kewarganegaraan</label>
+        <select th:field="*{kwn}">
+            <option th:each="kwn : ${allkwn}" th:value="${kwn.kdUser}" th:text="${kwn.nmKdUser}"/>
+        </select>
+        <span class="tengah2"/>
+        <label>Agama</label>
+        <select th:field="*{agama}">
+            <option th:each="agm : ${allagama}" th:value="${agm.kdUser}" th:text="${agm.nmKdUser}"/>
+        </select>
+
+    </div>
+
+    <div>
+        <label>Pekerjaan</label>
+        <select th:field="*{pekerjaan}">
+            <option th:each="pkj : ${allpkj}" th:value="${pkj.kdUser}" th:text="${pkj.nmKdUser}"/>
+        </select>
+        <span class="tengah2"/>
+        <label>Pendidikan</label>
+        <select th:field="*{pendidikan}">
+            <option th:each="pdd : ${allpdd}" th:value="${pdd.kdUser}" th:text="${pdd.nmKdUser}"/>
+        </select>
+
+    </div>
+    <div>
+
+    </div>
+    <div>
+        <label>E-mail</label>
+        <input type="text" th:field="*{email}" maxlength="7" th:class="${#fields.hasErrors('email')}?'fieldError'"/>
+    </div>
+    <div>
+
+    </div>
+    <div class="desc2"><span>Dalam keadaan darurat dapat menghubungi</span></div>
+
+    <div>
+        <label>Nama </label>
+        <input type="text" th:field="*{namaDarurat}" maxlength="50" th:class="${#fields.hasErrors('namaDarurat')}?'fieldError'"/>
+    </div>
+    <div class="desc3"><span>Alamat</span></div>
+    <div>
+        <label>Jalan</label>
+        <input type="text" th:field="*{jalanDarurat}" maxlength="100" th:class="${#fields.hasErrors('jalanDarurat')}?'fieldError'"/>
+        <span class="tengah1"/>
+        <label>Kelurahan</label>
+        <input type="text" th:field="*{kelurahanDarurat}" maxlength="30" th:class="${#fields.hasErrors('kelurahanDarurat')}?'fieldError'"/>
+    </div>
+    <div>
+        <label>Kota</label>
+        <input type="text" th:field="*{kotaDarurat}" maxlength="20" th:class="${#fields.hasErrors('kotaDarurat')}?'fieldError'"/>
+        <span class="tengah1"/>
+        <label>Kode Pos</label>
+        <input type="text" th:field="*{kodePosDarurat}" maxlength="7" th:class="${#fields.hasErrors('kodePosDarurat')}?'fieldError'"/>
+    </div>
+    <div>
+        <label>Telepon </label>
+        <input type="text" th:field="*{teleponDarurat}" maxlength="7" th:class="${#fields.hasErrors('teleponDarurat')}?'fieldError'"/>
+        <span class="tengah1"/>
+        <label>HP </label>
+        <input type="text" th:field="*{hpDarurat}" maxlength="15" th:class="${#fields.hasErrors('hpDarurat')}?'fieldError'"/>
+    </div>
+    <div class="desc3"></div>
+    <div>
+        <label>Hubungan dengan pasien </label>
+        <select th:field="*{hubungan}">
+            <option th:each="hub : ${allhub}" th:value="${hub.kdUser}" th:text="${hub.nmKdUser}"/>
+        </select>
+        <span class="tengah2"/>
+        <label>Jenis Kelamin</label>
+            <span class="opt" th:each="jk : ${alljk}">
+                <input type="radio" th:field="*{jkDarurat}" th:value="${jk.kdUser}" th:text="${jk.nmKdUser}"/>
+            </span>
+    </div>
+    <div>
+        <label>Pekerjaan</label>
+        <select th:field="*{pekerjaanDarurat}">
+            <option th:each="pkj : ${allpkj}" th:value="${pkj.kdUser}" th:text="${pkj.nmKdUser}"/>
+        </select>
+    </div>
+    <div class="desc2"></div>
+   <div><label class="judul">Data Sosial - Ekonomi - Fungsional</label></div>
+    <div>
+        <label>Cara Pembayaran</label>
+        <select th:field="*{caraBayar}">
+            <option th:each="byr : ${allbyr}" th:value="${byr.kdUser}" th:text="${byr.nmKdUser}"/>
+        </select>
+        <span class="tengah2"/>
+        <label>Dengan siapa anda tinggal</label>
+        <select th:field="*{tinggal}">
+            <option th:each="tgl : ${alltgl}" th:value="${tgl.kdUser}" th:text="${tgl.nmKdUser}"/>
+        </select>
+    </div>
+
+    <div>
+        <label>Alat bantu diri/implant/prothesa</label>
+         <span class="opt" th:each="imp : ${allimp}">
+                <input type="checkbox" th:field="*{alatBantu}" th:value="${imp.idField}" th:text="${imp.nmKdUser}" />
+         </span>
+    </div>
+
+    <div><label class="judul">Data Kesehatan</label></div>
+    <div>
+        <label>Keluhan utama saat ini </label>
+        <textarea rows="2" cols="0"  placeholder="Keluhan utama saat ini"
+                  th:text="*{keluhan}" th:class="${#fields.hasErrors('keluhan')}? 'fieldError'" ></textarea>
+    </div>
+    <div>
+        <label>Riwayat penyakit</label>
+         <span class="opt" th:each="rp: ${allrp}">
+                 <input type="checkbox" th:field="*{riwayatPenyakit}" th:value="${rp.idField}" th:text="${rp.nmKdUser}" />
+         </span>
+    </div>
+
+    <div>
+        <label>Riwayat pembedahan dan anestesi</label>
+        <textarea rows="2" cols="0"  placeholder="Riwayat pembedahan dan anestesi"
+                  th:text="*{riwayatBA}" th:class="${#fields.hasErrors('riwayatBA')}? 'fieldError'" ></textarea>
+    </div>
+   <div>
+       <label>Riwayat alergi obat / makanan </label>
+       <span><input type="checkbox"  th:field="*{riwayatAlergiY}"/>Ada</span>
+       <span><input type="checkbox"  th:field="*{riwayatAlergiT}"/>Tidak Ada</span>
+       <input type="text"  th:field="*{ketRiwayatAlergi}" id="textSdg2" th:class="${#fields.hasErrors('ketRiwayatAlergi')}?'fieldError'"/>
+    </div>
+    <div>
+        <label>Riwayat kehamilan dan melahirkan</label>
+        <span class="opt" th:each="hml : ${allhml}">
+            <input type="radio" th:field="*{riwayatHamil}" th:value="${hml.kdUser}" th:text="${hml.nmKdUser}"/>
+        </span>
+        <span class="tengahS"/><label> (khusus pasien anak)</label>
+        <span class="opt" th:each="ank : ${allank}">
+            <input type="radio" th:field="*{riwayatLahir}" th:value="${ank.kdUser}" th:text="${ank.nmKdUser}"/>
+        </span>
+    </div>
+    <div>
+        <label>Riwayat vaksinasi dasar</label>
+         <span class="opt" th:each="rvd: ${allrvd}">
+                 <input type="checkbox" th:field="*{rvDasar}" th:value="${rvd.idField}" th:text="${rvd.nmKdUser}" />
+         </span>
+    </div>
+    <div>
+        <label>Riwayat vaksinasi lanjut</label>
+         <span class="opt" th:each="rvl: ${allrvl}">
+                 <input type="checkbox" th:field="*{rvLanjut}" th:value="${rvl.idField}" th:text="${rvl.nmKdUser}" />
+         </span>
+    </div>
+<div>
+    <label>Riwayat kebiasaan</label>
+    <span>Rokok<input type="checkbox"  th:field="*{rokok}"/></span>
+
+    <input type="number" class="textPdk" th:field="*{ketRokok}"/>
+    <span>batang/hari</span>
+
+    <span class="tengah1"/>
+    <span>Alkohol<input type="checkbox"  th:field="*{alkohol}"/></span>
+    <input type="number" class="textPdk"  th:field="*{ketAlkohol}"/>
+    <span>batang/hari</span>
+
+    <span class="tengah1"/>
+    <span>Obat tidur/penenang/narkotika<input type="checkbox"  th:field="*{narkotika}"/></span>
+
+    <span class="tengah1"/>
+    <span>Olahraga<input type="checkbox"  th:field="*{olahraga}"/></span>
+
+</div>
+<div>
+    <label>Kondisi Psikologis</label>
+    <span>adakah kondisi kurang semangat, rasa tertekan, depresi, sulit tidur, lekas lelah, kurang nafsu makan, merasa bersalah,sulit konsentrasi, </span>
+ </div>
+    <div>
+        <label class="kosong"/>
+        <span>
+        sulit berbicara dan menggunakan obat penenang?</span><span><input type="checkbox"  th:field="*{psikologisY}"/>Ya</span>
+        <span><input type="checkbox"  th:field="*{psikologisT}"/>Tidak</span>
+    </div>
+
+</form>
+<div>
+    <label class="judul">Obat-obat yang rutin di gunakan </label>
+<form action="#" th:action="@{/pasienForm}" th:object="${obatRutin}" method="post">
+    <div>
+    <span>Jenis Obat
+        <input type="text" th:field="*{jenisObat}" maxlength="100"
+               th:class="${#fields.hasErrors('jenisObat')}?'fieldError' "/>
+    </span>
+    <span>Frekuensi
+        <input type="text"  th:field="*{frekuensi}" maxlength="50"
+               th:class="${#fields.hasErrors('frekuensi')}?'fieldError'"/>
+    </span>
+    <span>Dosis
+        <input type="text"  th:field="*{dosis}" maxlength="50"
+               th:class="${#fields.hasErrors('dosis')}?'fieldError'"/>
+    </span>
+    <span>
+    <button type="submit" name="addRow" class="noborder" ><img src="/resources/css/img/add.png" th:src="@{'/resources/css/img/add.png'}" alt="submit" class="gbr1"/></button>
+    </span>
+    </div>
+</form>
+    <div>
+    <table class="details">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>Jenis Obat</th>
+            <th>Frekuensi</th>
+            <th>Dosis</th>
+            <th> edit | delete
+                <!--<button type="submit" name="newRow">Add Row</button>-->
+                <!--<a href="pasienForm/obat?idPasien= + *{id}"-->
+                   <!--th:href="@{'pasienForm/obat?idPasien=' + *{id}}"-->
+                   <!--onclick="return popitup(this.href, 250,450)">Add Row</a>-->
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="obatRutin,rowStat :${listObat}" >
+            <td th:text="${rowStat.count}"></td>
+            <td th:text="${obatRutin.jenisObat}"/>
+
+            <td th:text="${obatRutin.frekuensi}"/>
+
+            <td th:text="${obatRutin.dosis}"/>
+
+            <td>
+                <a href="/pasienForm/+ ${obatRutin.idPasien.id} + / + ${obatRutin.idObat}"
+                   th:href="@{'/pasienForm/' + ${obatRutin.idPasien.id} + '/' + ${obatRutin.IdObat}}">
+                    <img src="/resources/css/img/edit.png" th:src="@{'/resources/css/img/edit1.png'}" class="gbr1"/></a>
+                <a href="/pasienForm/del/+ ${obatRutin.idPasien.id} + / + ${obatRutin.idObat}"
+                   th:href="@{'/pasienForm/del/' + ${obatRutin.idPasien.id} + '/' + ${obatRutin.IdObat}}">
+                    <img src="/resources/css/img/remove.png" th:src="@{'/resources/css/img/remove.png'}" class="gbr1"/></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+</body>
+</html>

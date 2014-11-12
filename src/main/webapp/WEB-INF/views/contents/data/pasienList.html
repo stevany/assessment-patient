@@ -1,0 +1,51 @@
+!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+
+<head>
+    <link rel="stylesheet" href="./resources/css/content.css" th:href="@{/resources/css/content.css}" />
+
+
+</head>
+<body tiles:fragment="content" >
+     <h1>PASIEN LIST </h1>
+     <a href="/pasienForm" th:href="@{'/pasienForm'}"> <img src="/resources/css/img/new.jpg" th:src="@{'/resources/css/img/new.jpg'}" class="gbr2"/></a>
+     <form action="#" th:action="@{/search}" th:object="${dataPasien}" method="GET">
+
+     <div>
+         <span>Nama<input type="text" name="namaLgkp"/></span>
+         <span>from
+         <input type="text" id="from" name="from" class="tglFT" /></span>
+         <span>to
+         <input type="text" id="to" name="to" class="tglFT" /> </span>
+
+         <button type="submit" id="btn-search" class="noborder"> <img src="/resources/css/img/zoom.png" th:src="@{'/resources/css/img/zoom.png'}" /></button>
+
+     </div>
+     </form>
+     <div>
+         <table>
+             <thead>
+             <th>Tgl</th>
+             <th>Nama</th>
+
+             <th>Edit</th>
+             </thead>
+             <tbody>
+             <tr th:each="dataPasien, rowStat: ${listData}">
+                 <td th:text="${#dates.format(dataPasien.tgl, 'dd-MMM-yyyy')}"/>
+                 <td th:text="${dataPasien.namaLengkap}"/>
+                 <td>     <a href="/pasienForm/+ ${dataPasien.id}"
+                             th:href="@{'/pasienForm/' + ${dataPasien.id} }"
+                         ><img
+                         src="/resources/css/img/edit.png" class="gbr1"/></a></td>
+             </tr>
+             </tbody>
+         </table>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      lang="en">
+<head>
+     <link rel="stylesheet" href="./resources/css/content.css" th:href="@{/resources/css/content.css}" />
+    <link rel="stylesheet" href="./resources/jquery-ui-1.10.3.custom/css/le-frog/jquery-ui-1.10.3.custom.css" th:href="@{/resources/jquery-ui-1.10.3.custom/css/le-frog/jquery-ui-1.10.3.custom.css}"/>
+    <script language="JavaScript" type="text/javascript" src="./resources/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./resources/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+</head>
+<body>
+<div id="content" >
+    <div  tiles:include="body">
+    </div>
+</div>
+</body>
+</html>

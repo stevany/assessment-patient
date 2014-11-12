@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+
+<head >
+    <link rel="stylesheet" href="./resources/css/standar.css" th:href="@{/resources/css/standar.css}" />
+    <link rel="stylesheet" href="./resources/css/menu.css" th:href="@{/resources/css/menu.css}" />
+    <link rel="stylesheet" href="./resources/css/content.css" th:href="@{/resources/css/content.css}" />
+    <link rel="stylesheet" href="./resources/jquery-ui-1.10.3.custom/css/le-frog/jquery-ui-1.10.3.custom.css" th:href="@{/resources/jquery-ui-1.10.3.custom/css/le-frog/jquery-ui-1.10.3.custom.css}"/>
+    <script language="JavaScript" type="text/javascript" src="./resources/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>
+    <script language="JavaScript" type="text/javascript" src="./resources/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" src="./resources/js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="./resources/js/sidebar.js"></script>
+    <script type="text/javascript" src="./resources/js/content.js"></script>
+    <!--<script language="JavaScript" type="text/javascript" src="./resources/js/collapse-menu.js"></script>-->
+
+    <!--<script language="JavaScript" type="text/javascript" src="./resources/jquery-ui-1.10.3.custom/js/jquery.ui.tabs.js"></script>-->
+    <!--<link rel="stylesheet" href="./resources/jquery-ui-1.10.3.custom/css/le-frog/jquery.ui.tabs.custom.css" th:href="@{/resources/jquery-ui-1.10.3.custom/css/le-frog/jquery.ui.tabs.css}"/>-->
+
+    <!-- Custom CSS -->
+
+
+    <!-- The following styles and scripts are served from spring-js-resources-{ver}.jar -->
+
+
+</head>
+
+
+<body>
+
+
+    <div id="wrapper">
+
+    <div id="banner" tiles:include="banner">     </div>
+        <div class="use-sidebar sidebar-at-left" id="main">
+            <div id="sidebar"  tiles:include="sidebar" >Sidebar</div>
+            <div id="content" >
+                <div  tiles:include="body">
+
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                <!-- At runtime, the body of this <div> will be substituted by -->
+                <!-- Tiles in order to create the final HTML page that will be -->
+                <!-- sent to the browser.                                      -->
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+                BODY PAGE GOES HERE!
+
+            </div>
+            </div>
+
+            <a href="#" id="separator"></a>
+            <div class="clearer">&nbsp;</div>
+        </div>
+
+
+
+
+
+   <div id="footer" style="clear: both;text-align:center;">
+       <hr/>
+       <div tiles:include="footer">
+
+       </div>
+   </div>
+
+    </div>
+</body>
+</html>

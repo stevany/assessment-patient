@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:tiles="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <!--<link rel="stylesheet" href="./resources/css/menu.css" th:href="@{/resources/css/menu.css}" />-->
+    <!--<script language="JavaScript" type="text/javascript" src="./resources/jquery-ui-1.10.3.custom/js/jquery-1.9.1.js"></script>-->
+    <!--<script language="JavaScript" type="text/javascript" src="./resources/js/collapse-menu.js"></script>-->
+
+</head>
+<body>
+<div tiles:fragment="sidebar" >
+
+
+    <div id="main">
+        <ul id="menu1" class="menu">
+            <li><a class="expanded">Menu</a></li>
+            <li class="empty"><span> </span></li>
+                <!--<ul>-->
+                    <li class="active"><a href="#" th:href="@{/}" id="home">Home</a></li>
+                    <li class="empty"><span> </span></li>
+                    <li class="nonactive"><a href="#" th:href="@{/pasienList}" id="pasienList">Data Pasien</a></li>
+                    <li class="empty"><span> </span>  </li>
+                    <li class="nonactive"><a href="#"  th:href="@{/stdfieldList}">StdField</a></li>
+                    <li class="empty"><span> </span> </li>
+                    <li class="nonactive"><a href="#"  th:href="@{/userForm}">User</a></li>
+                <!--</ul>-->
+            <li class="empty"><span> </span> </li>
+            <li class="menu-footer"><span> </span></li>
+            <li><a class="collapsed"></a></li>
+
+                    <!--<li><a href="#">Link B-B</a></li>-->
+                <!--</ul>-->
+            <!--</li>-->
+            <!--<li class="menu-footer"><span> </span></li>-->
+            <!--<li><a class="collapsed">Utility</a>-->
+                <!--<ul>-->
+                    <!--<li><a href="#" th:href="@{/intro}" id="int">Intro</a></li>-->
+                    <!--<li><a href="#">User</a></li>-->
+                </ul>
+
+    </div>
+
+ </div>
+</body>
+</html>

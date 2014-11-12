@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:context="http://www.springframework.org/schema/context"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/security ">
+    <http pattern="/resources" security="none"/>
+    <http auto-config="true" use-expressions="true">
+
+        <intercept-url pattern="/login" access="permitAll"/>
+        <intercept-url pattern="/signup" access="permitAll"/>
+        <intercept-url pattern="/logout" access="permitAll"/>
+        <intercept-url pattern="/error" access="permitAll"/>
+        <intercept-url pattern="/denied" access="permitAll"/>
+        <intercept-url pattern="/userForm/**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/stdfieldForm/**" access="hasRole('ADMIN')"/>
+        <intercept-url pattern="/resources/**" access="permitAll"/>
+        <intercept-url pattern="/favicon.ico" access="permitAll"/>
+        <form-login login-page="/login"
+                    authentication-failure-url="/login/failure"
+                    default-target-url="/"/>
+        <access-denied-handler error-page="/denied"/>
+        <logout invalidate-session="true"
+                logout-success-url="/login"
+                logout-url="/logout"/>
+        <intercept-url pattern="/**" access="isFullyAuthenticated()"/>
+    </http>
+    <authentication-manager>
+        <authentication-provider ref="daoAuthenticationProvider"/>
+        <authentication-provider>
+            <user-service>
+                <user name="altaire" authorities="ADMIN" password="122"/>
+                <user name="adm" authorities="USER" password="123"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+    <context:component-scan base-package="com.rscharitas.dataPP"/>
+    <beans:bean class="org.springframework.security.authentication.encoding.ShaPasswordEncoder" id="passwordEncoder"/>
+    <beans:bean class="org.springframework.security.authentication.dao.ReflectionSaltSource" id="saltSource">
+        <beans:property name="userPropertyToUse" value="salt"/>
+    </beans:bean>
+    <beans:bean id="daoAuthenticationProvider"
+                class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <beans:property name="userDetailsService" ref="securityService"/>
+        <beans:property name="passwordEncoder" ref="passwordEncoder"/>
+        <beans:property name="saltSource" ref="saltSource"/>
+    </beans:bean>
+</beans:beans>
